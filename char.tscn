@@ -20,6 +20,7 @@ material = SubResource("StandardMaterial3D_njpxk")
 text = "H"
 font_size = 14
 pixel_size = 0.1
+depth = 0.1
 
 [node name="Char" type="RigidBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_5k12k")

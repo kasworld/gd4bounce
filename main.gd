@@ -27,8 +27,9 @@ func _ready() -> void:
 		)))
 		add_child(rand_pos_rot(
 			preload("res://char.tscn").instantiate(
-			).init(deck.pick_random()
+			).set_char(deck.pick_random()
 			).set_color(NamedColorList.color_list.pick_random()[0]
+			).set_height_depth(randf_range(0.5,2),randf_range(0.01,0.3)
 		)))
 
 func rand_pos_rot(n :Node3D) -> Node3D:
