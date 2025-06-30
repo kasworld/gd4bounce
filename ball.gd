@@ -22,7 +22,6 @@ static var tex_array = [
 
 func set_material(mat :Material) -> Ball:
 	$MeshInstance3D.mesh.material = mat
-	$MeshInstance3D.mesh.material.clearcoat_enabled = true
 	return self
 
 func set_color(co :Color) -> Ball:
