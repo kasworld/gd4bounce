@@ -1,12 +1,20 @@
 extends Node3D
 
 func _ready() -> void:
-	for i in 100:
+	for i in 50:
 		var b = add_ball()
 		add_child(b)
 
-	for i in 100:
+	for i in 50:
 		var b = add_capsule()
+		add_child(b)
+
+	for i in 50:
+		var b = add_coin()
+		add_child(b)
+
+	for i in 50:
+		var b = add_dice()
 		add_child(b)
 	
 func add_ball() -> Ball:
@@ -17,6 +25,18 @@ func add_ball() -> Ball:
 
 func add_capsule() -> Capsule:
 	var rtn = preload("res://capsule.tscn").instantiate()
+	rtn.position = Vector3(randf_range(-9,9),randf_range(-8,9),randf_range(-9,9))
+	rtn.rotation = Vector3(randf_range(-PI,PI),randf_range(-PI,PI),randf_range(-PI,PI))
+	return rtn
+
+func add_coin() -> Coin:
+	var rtn = preload("res://coin.tscn").instantiate()
+	rtn.position = Vector3(randf_range(-9,9),randf_range(-8,9),randf_range(-9,9))
+	rtn.rotation = Vector3(randf_range(-PI,PI),randf_range(-PI,PI),randf_range(-PI,PI))
+	return rtn
+
+func add_dice() -> Dice:
+	var rtn = preload("res://dice.tscn").instantiate()
 	rtn.position = Vector3(randf_range(-9,9),randf_range(-8,9),randf_range(-9,9))
 	rtn.rotation = Vector3(randf_range(-PI,PI),randf_range(-PI,PI),randf_range(-PI,PI))
 	return rtn
