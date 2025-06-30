@@ -6,38 +6,34 @@ func _ready() -> void:
 
 	for i in n:
 		var rtn = preload("res://ball.tscn").instantiate().set_material(Ball.tex_array.pick_random()).set_radius(randf_range(0.2,1))
-		rand_pos_rot(rtn)
-		add_child(rtn)
+		add_child(rand_pos_rot(rtn))
 
 	for i in n:
 		var rtn = preload("res://capsule.tscn").instantiate().set_color(NamedColorList.color_list.pick_random()[0]).set_radius_height(
-			randf_range(0.2,1), randf_range(0.4,2),
+			randf_range(0.2,1), randf_range(0.6,3),
 		)
-		rand_pos_rot(rtn)
-		add_child(rtn)
+		add_child(rand_pos_rot(rtn))
 
 	for i in n:
 		var rtn = preload("res://coin.tscn").instantiate().init( i%8 +4).set_color(NamedColorList.color_list.pick_random()[0]).set_radius_height(
 			randf_range(0.2,1), randf_range(0.04,0.2),
 		)
-		rand_pos_rot(rtn)
-		add_child(rtn)
+		add_child(rand_pos_rot(rtn))
 
 	for i in n:
 		var rtn = preload("res://dice.tscn").instantiate().set_color(NamedColorList.color_list.pick_random()[0]).set_size(
 			Vector3( randf_range(0.4,2),randf_range(0.4,2),randf_range(0.4,2) )
 		)
-		rand_pos_rot(rtn)
-		add_child(rtn)
+		add_child(rand_pos_rot(rtn))
 
 	for i in n:
 		var rtn = preload("res://char.tscn").instantiate().init(deck.pick_random()).set_color(NamedColorList.color_list.pick_random()[0])
-		rand_pos_rot(rtn)
-		add_child(rtn)
+		add_child(rand_pos_rot(rtn))
 
-func rand_pos_rot(n :Node3D) -> void:
+func rand_pos_rot(n :Node3D) -> Node3D:
 	n.position = Vector3(randf_range(-9,9),randf_range(-8,9),randf_range(-9,9))
 	n.rotation = Vector3(randf_range(-PI,PI),randf_range(-PI,PI),randf_range(-PI,PI))
+	return n
 
 var key2fn = {
 	KEY_ESCAPE:_on_button_esc_pressed,
