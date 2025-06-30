@@ -5,56 +5,33 @@ func _ready() -> void:
 	var n = 10
 
 	for i in n:
-		var b = add_ball()
-		add_child(b)
+		var rtn = preload("res://ball.tscn").instantiate().set_material(Ball.tex_array.pick_random())
+		rand_pos_rot(rtn)
+		add_child(rtn)
 
 	for i in n:
-		var b = add_capsule()
-		add_child(b)
+		var rtn = preload("res://capsule.tscn").instantiate().set_color(NamedColorList.color_list.pick_random()[0])
+		rand_pos_rot(rtn)
+		add_child(rtn)
 
 	for i in n:
-		var b = add_coin( i % 8 +4 )
-		add_child(b)
+		var rtn = preload("res://coin.tscn").instantiate().init( i%8 +4).set_color(NamedColorList.color_list.pick_random()[0])
+		rand_pos_rot(rtn)
+		add_child(rtn)
 
 	for i in n:
-		var b = add_dice()
-		add_child(b)
+		var rtn = preload("res://dice.tscn").instantiate().set_color(NamedColorList.color_list.pick_random()[0])
+		rand_pos_rot(rtn)
+		add_child(rtn)
 
 	for i in n:
-		var b = add_char(deck.pick_random())
-		add_child(b)
+		var rtn = preload("res://char.tscn").instantiate().init(deck.pick_random()).set_color(NamedColorList.color_list.pick_random()[0])
+		rand_pos_rot(rtn)
+		add_child(rtn)
 
-	
-func add_ball() -> Ball:
-	var rtn = preload("res://ball.tscn").instantiate().set_material(Ball.tex_array.pick_random())
-	rtn.position = Vector3(randf_range(-9,9),randf_range(-8,9),randf_range(-9,9))
-	rtn.rotation = Vector3(randf_range(-PI,PI),randf_range(-PI,PI),randf_range(-PI,PI))
-	return rtn
-
-func add_capsule() -> Capsule:
-	var rtn = preload("res://capsule.tscn").instantiate().set_color(NamedColorList.color_list.pick_random()[0])
-	rtn.position = Vector3(randf_range(-9,9),randf_range(-8,9),randf_range(-9,9))
-	rtn.rotation = Vector3(randf_range(-PI,PI),randf_range(-PI,PI),randf_range(-PI,PI))
-	return rtn
-
-func add_coin(n :int) -> Coin:
-	var rtn = preload("res://coin.tscn").instantiate().init(n).set_color(NamedColorList.color_list.pick_random()[0])
-	rtn.position = Vector3(randf_range(-9,9),randf_range(-8,9),randf_range(-9,9))
-	rtn.rotation = Vector3(randf_range(-PI,PI),randf_range(-PI,PI),randf_range(-PI,PI))
-	return rtn
-
-func add_dice() -> Dice:
-	var rtn = preload("res://dice.tscn").instantiate().set_color(NamedColorList.color_list.pick_random()[0])
-	rtn.position = Vector3(randf_range(-9,9),randf_range(-8,9),randf_range(-9,9))
-	rtn.rotation = Vector3(randf_range(-PI,PI),randf_range(-PI,PI),randf_range(-PI,PI))
-	return rtn
-
-func add_char(s :String) -> Char:
-	var rtn = preload("res://char.tscn").instantiate().init(s).set_color(NamedColorList.color_list.pick_random()[0])
-	rtn.position = Vector3(randf_range(-9,9),randf_range(-8,9),randf_range(-9,9))
-	rtn.rotation = Vector3(randf_range(-PI,PI),randf_range(-PI,PI),randf_range(-PI,PI))
-	return rtn
-
+func rand_pos_rot(n :Node3D) -> void:
+	n.position = Vector3(randf_range(-9,9),randf_range(-8,9),randf_range(-9,9))
+	n.rotation = Vector3(randf_range(-PI,PI),randf_range(-PI,PI),randf_range(-PI,PI))
 
 var key2fn = {
 	KEY_ESCAPE:_on_button_esc_pressed,
