@@ -4,12 +4,23 @@ func _ready() -> void:
 	for i in 100:
 		var b = add_ball()
 		add_child(b)
+
+	for i in 100:
+		var b = add_capsule()
+		add_child(b)
 	
 func add_ball() -> Ball:
 	var rtn = preload("res://ball.tscn").instantiate()
 	rtn.position = Vector3(randf_range(-9,9),randf_range(-8,9),randf_range(-9,9))
 	rtn.rotation = Vector3(randf_range(-PI,PI),randf_range(-PI,PI),randf_range(-PI,PI))
 	return rtn
+
+func add_capsule() -> Capsule:
+	var rtn = preload("res://capsule.tscn").instantiate()
+	rtn.position = Vector3(randf_range(-9,9),randf_range(-8,9),randf_range(-9,9))
+	rtn.rotation = Vector3(randf_range(-PI,PI),randf_range(-PI,PI),randf_range(-PI,PI))
+	return rtn
+
 
 var key2fn = {
 	KEY_ESCAPE:_on_button_esc_pressed,

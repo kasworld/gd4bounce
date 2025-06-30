@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-class_name Ball
+class_name Capsule
 
 func _ready() -> void:
 	var co = NamedColorList.color_list.pick_random()[0]
