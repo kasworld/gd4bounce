@@ -16,6 +16,11 @@ func _ready() -> void:
 	for i in 50:
 		var b = add_dice()
 		add_child(b)
+
+	for i in 50:
+		var b = add_char("%s" % i)
+		add_child(b)
+
 	
 func add_ball() -> Ball:
 	var rtn = preload("res://ball.tscn").instantiate()
@@ -37,6 +42,12 @@ func add_coin() -> Coin:
 
 func add_dice() -> Dice:
 	var rtn = preload("res://dice.tscn").instantiate()
+	rtn.position = Vector3(randf_range(-9,9),randf_range(-8,9),randf_range(-9,9))
+	rtn.rotation = Vector3(randf_range(-PI,PI),randf_range(-PI,PI),randf_range(-PI,PI))
+	return rtn
+
+func add_char(s :String) -> Char:
+	var rtn = preload("res://char.tscn").instantiate().init(s)
 	rtn.position = Vector3(randf_range(-9,9),randf_range(-8,9),randf_range(-9,9))
 	rtn.rotation = Vector3(randf_range(-PI,PI),randf_range(-PI,PI),randf_range(-PI,PI))
 	return rtn
