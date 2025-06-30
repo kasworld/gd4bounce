@@ -2,7 +2,7 @@ extends RigidBody3D
 
 class_name Ball
 
-var tex_array = [
+static var tex_array = [
 	preload("res://BallTexture/ball1.tres"),	
 	preload("res://BallTexture/ball2.tres"),	
 	preload("res://BallTexture/ball3.tres"),	
@@ -20,7 +20,10 @@ var tex_array = [
 	preload("res://BallTexture/ball15.tres"),	
 ]
 
-func _ready() -> void:
-	$MeshInstance3D.mesh.material = tex_array.pick_random()
-	#var co = NamedColorList.color_list.pick_random()[0]
-	#$MeshInstance3D.mesh.material.albedo_color = co #Color(co, 0.5)
+func set_material(mat :Material) -> Ball:
+	$MeshInstance3D.mesh.material = mat
+	return self
+
+func set_color(co :Color) -> Ball:
+	$MeshInstance3D.mesh.material.albedo_color = co
+	return self

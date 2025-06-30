@@ -2,6 +2,6 @@ extends RigidBody3D
 
 class_name Capsule
 
-func _ready() -> void:
-	var co = NamedColorList.color_list.pick_random()[0]
-	$MeshInstance3D.mesh.material.albedo_color = co #Color(co, 0.5)
+func set_color(co :Color) -> Capsule:
+	$MeshInstance3D.mesh.material.albedo_color = co
+	return self
