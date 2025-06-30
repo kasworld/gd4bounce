@@ -1,23 +1,24 @@
 extends Node3D
 
 func _ready() -> void:
-	for i in 50:
+	var n = 10
+	for i in n:
 		var b = add_ball()
 		add_child(b)
 
-	for i in 50:
+	for i in n:
 		var b = add_capsule()
 		add_child(b)
 
-	for i in 50:
-		var b = add_coin()
+	for i in n:
+		var b = add_coin( i % 8 +4 )
 		add_child(b)
 
-	for i in 50:
+	for i in n:
 		var b = add_dice()
 		add_child(b)
 
-	for i in 50:
+	for i in n:
 		var b = add_char("%s" % i)
 		add_child(b)
 
@@ -34,8 +35,8 @@ func add_capsule() -> Capsule:
 	rtn.rotation = Vector3(randf_range(-PI,PI),randf_range(-PI,PI),randf_range(-PI,PI))
 	return rtn
 
-func add_coin() -> Coin:
-	var rtn = preload("res://coin.tscn").instantiate()
+func add_coin(n :int) -> Coin:
+	var rtn = preload("res://coin.tscn").instantiate().init(n)
 	rtn.position = Vector3(randf_range(-9,9),randf_range(-8,9),randf_range(-9,9))
 	rtn.rotation = Vector3(randf_range(-PI,PI),randf_range(-PI,PI),randf_range(-PI,PI))
 	return rtn
