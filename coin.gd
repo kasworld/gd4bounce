@@ -9,3 +9,11 @@ func init(n :int) -> Coin:
 func set_color(co :Color) -> Coin:
 	$MeshInstance3D.mesh.material.albedo_color = co
 	return self
+
+func set_radius_height(r :float, h:float) -> Coin:
+	$MeshInstance3D.mesh.top_radius = r
+	$MeshInstance3D.mesh.bottom_radius = r
+	$MeshInstance3D.mesh.height = h
+	$CollisionShape3D.shape.radius = r
+	$CollisionShape3D.shape.height = h
+	return self

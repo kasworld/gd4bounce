@@ -23,9 +23,14 @@ static var tex_array = [
 func set_material(mat :Material) -> Ball:
 	$MeshInstance3D.mesh.material = mat
 	$MeshInstance3D.mesh.material.clearcoat_enabled = true
-	
 	return self
 
 func set_color(co :Color) -> Ball:
 	$MeshInstance3D.mesh.material.albedo_color = co
+	return self
+
+func set_radius(r :float) -> Ball:
+	$MeshInstance3D.mesh.radius = r
+	$MeshInstance3D.mesh.height = r*2
+	$CollisionShape3D.shape.radius = r
 	return self

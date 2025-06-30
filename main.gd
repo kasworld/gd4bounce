@@ -5,22 +5,28 @@ func _ready() -> void:
 	var n = 10
 
 	for i in n:
-		var rtn = preload("res://ball.tscn").instantiate().set_material(Ball.tex_array.pick_random())
+		var rtn = preload("res://ball.tscn").instantiate().set_material(Ball.tex_array.pick_random()).set_radius(randf_range(0.2,1))
 		rand_pos_rot(rtn)
 		add_child(rtn)
 
 	for i in n:
-		var rtn = preload("res://capsule.tscn").instantiate().set_color(NamedColorList.color_list.pick_random()[0])
+		var rtn = preload("res://capsule.tscn").instantiate().set_color(NamedColorList.color_list.pick_random()[0]).set_radius_height(
+			randf_range(0.2,1), randf_range(0.4,2),
+		)
 		rand_pos_rot(rtn)
 		add_child(rtn)
 
 	for i in n:
-		var rtn = preload("res://coin.tscn").instantiate().init( i%8 +4).set_color(NamedColorList.color_list.pick_random()[0])
+		var rtn = preload("res://coin.tscn").instantiate().init( i%8 +4).set_color(NamedColorList.color_list.pick_random()[0]).set_radius_height(
+			randf_range(0.2,1), randf_range(0.04,0.2),
+		)
 		rand_pos_rot(rtn)
 		add_child(rtn)
 
 	for i in n:
-		var rtn = preload("res://dice.tscn").instantiate().set_color(NamedColorList.color_list.pick_random()[0])
+		var rtn = preload("res://dice.tscn").instantiate().set_color(NamedColorList.color_list.pick_random()[0]).set_size(
+			Vector3( randf_range(0.4,2),randf_range(0.4,2),randf_range(0.4,2) )
+		)
 		rand_pos_rot(rtn)
 		add_child(rtn)
 
