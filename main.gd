@@ -1,7 +1,9 @@
 extends Node3D
 
 func _ready() -> void:
+	var deck = PlayingCard.make_deck_with_joker()
 	var n = 10
+
 	for i in n:
 		var b = add_ball()
 		add_child(b)
@@ -19,7 +21,7 @@ func _ready() -> void:
 		add_child(b)
 
 	for i in n:
-		var b = add_char("%s" % i)
+		var b = add_char(deck.pick_random())
 		add_child(b)
 
 	
