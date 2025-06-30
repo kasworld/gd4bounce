@@ -5,30 +5,40 @@ func _ready() -> void:
 	var n = 10
 
 	for i in n:
-		var rtn = preload("res://ball.tscn").instantiate().set_material(Ball.tex_array.pick_random()).set_radius(randf_range(0.2,1))
-		add_child(rand_pos_rot(rtn))
+		add_child(rand_pos_rot(
+			preload("res://ball.tscn").instantiate(
+			).set_material(Ball.tex_array.pick_random()
+			).set_radius(randf_range(0.2,1)
+		)))
 
 	for i in n:
-		var rtn = preload("res://capsule.tscn").instantiate().set_color(NamedColorList.color_list.pick_random()[0]).set_radius_height(
-			randf_range(0.2,1), randf_range(0.6,3),
-		)
-		add_child(rand_pos_rot(rtn))
+		add_child(rand_pos_rot(
+			preload("res://capsule.tscn").instantiate(
+			).set_color(NamedColorList.color_list.pick_random()[0]
+			).set_radius_height(	randf_range(0.2,1), randf_range(0.6,3)
+		)))
 
 	for i in n:
-		var rtn = preload("res://coin.tscn").instantiate().init( i%8 +4).set_color(NamedColorList.color_list.pick_random()[0]).set_radius_height(
-			randf_range(0.2,1), randf_range(0.04,0.2),
-		)
-		add_child(rand_pos_rot(rtn))
+		add_child(rand_pos_rot(
+			preload("res://coin.tscn").instantiate(
+			).init( i%8 +4
+			).set_color(NamedColorList.color_list.pick_random()[0]
+			).set_radius_height(randf_range(0.2,1), randf_range(0.04,0.2)
+		)))
 
 	for i in n:
-		var rtn = preload("res://dice.tscn").instantiate().set_color(NamedColorList.color_list.pick_random()[0]).set_size(
-			Vector3( randf_range(0.4,2),randf_range(0.4,2),randf_range(0.4,2) )
-		)
-		add_child(rand_pos_rot(rtn))
+		add_child(rand_pos_rot(
+			preload("res://dice.tscn").instantiate(
+			).set_color(NamedColorList.color_list.pick_random()[0]
+			).set_size(Vector3( randf_range(0.4,2),randf_range(0.4,2),randf_range(0.4,2) )
+		)))
 
 	for i in n:
-		var rtn = preload("res://char.tscn").instantiate().init(deck.pick_random()).set_color(NamedColorList.color_list.pick_random()[0])
-		add_child(rand_pos_rot(rtn))
+		add_child(rand_pos_rot(
+			preload("res://char.tscn").instantiate(
+			).init(deck.pick_random()
+			).set_color(NamedColorList.color_list.pick_random()[0]
+		)))
 
 func rand_pos_rot(n :Node3D) -> Node3D:
 	n.position = Vector3(randf_range(-9,9),randf_range(-8,9),randf_range(-9,9))
