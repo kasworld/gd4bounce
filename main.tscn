@@ -28,7 +28,6 @@ sky_mode = 1
 
 [node name="WallBottom" parent="." instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
-constant_linear_velocity = Vector3(0, 1, 0)
 
 [node name="WallNorth" parent="." instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -10)

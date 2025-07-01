@@ -1,12 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbi5m3y455bq4"]
+[gd_scene load_steps=6 format=3 uid="uid://bbi5m3y455bq4"]
 
 [ext_resource type="Script" uid="uid://dofyafqd7rbee" path="res://ball.gd" id="1_x8fbi"]
-[ext_resource type="Texture2D" uid="uid://dchsb4beh4umq" path="res://earthmoon/earthmap8k.png" id="2_41u45"]
-[ext_resource type="Texture2D" uid="uid://b0lmvtff4piv" path="res://earthmoon/earthbump8k.png" id="3_ktgx5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x8fbi"]
 resource_local_to_scene = true
-friction = 0.1
+friction = 0.0
 bounce = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_x8fbi"]
@@ -14,9 +12,6 @@ resource_local_to_scene = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x8fbi"]
 resource_local_to_scene = true
-albedo_texture = ExtResource("2_41u45")
-normal_enabled = true
-normal_texture = ExtResource("3_ktgx5")
 
 [sub_resource type="SphereMesh" id="SphereMesh_ktgx5"]
 resource_local_to_scene = true
@@ -25,7 +20,7 @@ material = SubResource("StandardMaterial3D_x8fbi")
 [node name="Ball" type="RigidBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_x8fbi")
 contact_monitor = true
-max_contacts_reported = 2
+max_contacts_reported = 9
 linear_damp_mode = 1
 angular_damp_mode = 1
 script = ExtResource("1_x8fbi")

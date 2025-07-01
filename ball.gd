@@ -28,6 +28,12 @@ func random_color() -> Color:
 
 func _on_body_entered(body: Node) -> void:
 	if body is Brick:
-		body.set_color(get_color())
+		#body.set_color(get_color())
+		body.queue_free()
+		pass
 	elif body is Wall:
-		body.set_color( get_color().lerp(body.get_color(), 0.9 ) )
+		#body.set_color( get_color().lerp(body.get_color(), 0.9 ) )
+		pass
+
+func rand_vector3(m :float) -> Vector3:
+	return Vector3(randf_range(-m,m),randf_range(-m,m),randf_range(-m,m))
