@@ -21,6 +21,8 @@ height = 0.1
 
 [node name="Coin" type="RigidBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_0t63x")
+contact_monitor = true
+max_contacts_reported = 2
 linear_damp_mode = 1
 angular_damp_mode = 1
 script = ExtResource("1_d5gmh")
@@ -30,3 +32,5 @@ shape = SubResource("CylinderShape3D_v7riw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_w14il")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

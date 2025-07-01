@@ -19,6 +19,8 @@ material = SubResource("StandardMaterial3D_ew7su")
 
 [node name="Dice" type="RigidBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_ew7su")
+contact_monitor = true
+max_contacts_reported = 2
 linear_damp_mode = 1
 angular_damp_mode = 1
 script = ExtResource("1_ju2fo")
@@ -28,3 +30,5 @@ shape = SubResource("BoxShape3D_ew7su")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_ju2fo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -2,7 +2,7 @@ extends Node3D
 
 func _ready() -> void:
 	var deck = PlayingCard.make_deck_with_joker()
-	var n = 10
+	var n = 1
 	for i in n:
 		add_child(rand_pos_rot(
 			preload("res://ball.tscn").instantiate(
@@ -32,17 +32,16 @@ func _ready() -> void:
 			).set_height_depth(randf_range(0.5,2),randf_range(0.01,0.3)
 		)))
 
-	for x in range(-9,9):
+	for x in range(-9,10):
 		for y in range(-9,0):
-			for z in range(-9,9):
+			for z in range(-9,10):
 				if randi_range(0,100) != 0:
 					continue
 				var br = preload("res://brick.tscn").instantiate(
 					).set_color(random_color()
-					).set_size(Vector3(0.5,0.5,0.5))
+					).set_size(Vector3(0.9,0.9,0.9))
 				br.position = Vector3(x,y,z)
 				add_child(br)
-		
 
 func rand_pos_rot(n :Node3D) -> Node3D:
 	n.position = Vector3(randf_range(-9,9),randf_range(-8,9),randf_range(-9,9))

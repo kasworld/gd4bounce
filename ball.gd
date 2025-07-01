@@ -33,3 +33,10 @@ func set_radius(r :float) -> Ball:
 	$MeshInstance3D.mesh.height = r*2
 	$CollisionShape3D.shape.radius = r
 	return self
+	
+func random_color() -> Color:
+	return NamedColorList.color_list.pick_random()[0]
+
+func _on_body_entered(body: Node) -> void:
+	if body is Brick:
+		body.set_color(random_color())

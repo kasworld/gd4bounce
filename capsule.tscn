@@ -19,6 +19,8 @@ material = SubResource("StandardMaterial3D_2mnhe")
 
 [node name="Capsule" type="RigidBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_2mnhe")
+contact_monitor = true
+max_contacts_reported = 2
 linear_damp_mode = 1
 angular_damp_mode = 1
 script = ExtResource("1_2mnhe")
@@ -28,3 +30,5 @@ shape = SubResource("CapsuleShape3D_2mnhe")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_uxsg3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

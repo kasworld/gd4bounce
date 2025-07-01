@@ -48,4 +48,3 @@ constant_linear_velocity = Vector3(-2, 0, 0)
 
 [node name="WallTop" parent="." instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 10, 0)
-constant_linear_velocity = Vector3(0, -2, 0)

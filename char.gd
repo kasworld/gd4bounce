@@ -18,3 +18,10 @@ func set_char(s :String) -> Char:
 	$MeshInstance3D.mesh.text = s
 	$CollisionShape3D.shape.size.x = $CollisionShape3D.shape.size.z * 0.9 * $MeshInstance3D.mesh.text.length() 
 	return self
+
+func random_color() -> Color:
+	return NamedColorList.color_list.pick_random()[0]
+
+func _on_body_entered(body: Node) -> void:
+	if body is Brick:
+		body.set_color(random_color())

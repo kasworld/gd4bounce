@@ -24,6 +24,10 @@ depth = 0.1
 
 [node name="Char" type="RigidBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_5k12k")
+contact_monitor = true
+max_contacts_reported = 2
+linear_damp_mode = 1
+angular_damp_mode = 1
 script = ExtResource("1_njpxk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -32,3 +36,5 @@ shape = SubResource("BoxShape3D_njpxk")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("TextMesh_5k12k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
