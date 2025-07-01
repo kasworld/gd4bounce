@@ -25,7 +25,7 @@ depth = 0.1
 [node name="Char" type="RigidBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_5k12k")
 contact_monitor = true
-max_contacts_reported = 2
+max_contacts_reported = 9
 linear_damp_mode = 1
 angular_damp_mode = 1
 script = ExtResource("1_njpxk")

@@ -23,9 +23,6 @@ func set_radius(r :float) -> Ball:
 	$CollisionShape3D.shape.radius = r
 	return self
 	
-func random_color() -> Color:
-	return NamedColorList.color_list.pick_random()[0]
-
 func _on_body_entered(body: Node) -> void:
 	if body is Brick:
 		#body.set_color(get_color())
@@ -34,6 +31,3 @@ func _on_body_entered(body: Node) -> void:
 	elif body is Wall:
 		#body.set_color( get_color().lerp(body.get_color(), 0.9 ) )
 		pass
-
-func rand_vector3(m :float) -> Vector3:
-	return Vector3(randf_range(-m,m),randf_range(-m,m),randf_range(-m,m))

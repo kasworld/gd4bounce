@@ -20,7 +20,7 @@ material = SubResource("StandardMaterial3D_ew7su")
 [node name="Dice" type="RigidBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_ew7su")
 contact_monitor = true
-max_contacts_reported = 2
+max_contacts_reported = 9
 linear_damp_mode = 1
 angular_damp_mode = 1
 script = ExtResource("1_ju2fo")
