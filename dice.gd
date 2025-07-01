@@ -1,6 +1,15 @@
 extends RigidBody3D
 class_name Dice
 
+func init(vel :Vector3, avel :Vector3) -> Dice:
+	linear_velocity = vel
+	angular_velocity = avel
+	return self
+
+func set_material(mat :Material) -> Dice:
+	$MeshInstance3D.mesh.material = mat
+	return self
+
 func set_color(co :Color) -> Dice:
 	$MeshInstance3D.mesh.material.albedo_color = co
 	return self

@@ -1,8 +1,17 @@
 extends RigidBody3D
 class_name Coin
 
-func init(n :int) -> Coin:
+func init(vel :Vector3, avel :Vector3) -> Coin:
+	linear_velocity = vel
+	angular_velocity = avel
+	return self
+
+func set_segment(n :int) -> Coin:
 	$MeshInstance3D.mesh.radial_segments = n
+	return self
+
+func set_material(mat :Material) -> Coin:
+	$MeshInstance3D.mesh.material = mat
 	return self
 
 func set_color(co :Color) -> Coin:

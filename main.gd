@@ -25,27 +25,32 @@ func _ready() -> void:
 	for i in n:
 		add_child(rand_pos_rot(
 			preload("res://ball.tscn").instantiate(
+			).init(rand_vector3(10),rand_vector3(PI)
 			).set_color(random_color()
 			).set_radius(randf_range(0.2,0.8)
 		)))
 		add_child(rand_pos_rot(
 			preload("res://capsule.tscn").instantiate(
+			).init(rand_vector3(10),rand_vector3(PI)
 			).set_color(random_color()
 			).set_radius_height(	randf_range(0.2,0.6), randf_range(0.6,3)
 		)))
 		add_child(rand_pos_rot(
 			preload("res://coin.tscn").instantiate(
-			).init( i%8 +4
+			).init(rand_vector3(10),rand_vector3(PI)
+			).set_segment( i%8 +4
 			).set_color(random_color()
 			).set_radius_height(randf_range(0.2,1), randf_range(0.04,0.2)
 		)))
 		add_child(rand_pos_rot(
 			preload("res://dice.tscn").instantiate(
+			).init(rand_vector3(10),rand_vector3(PI)
 			).set_color(random_color()
 			).set_size(Vector3( randf_range(0.4,2),randf_range(0.4,2),randf_range(0.4,2) )
 		)))
 		add_child(rand_pos_rot(
 			preload("res://char.tscn").instantiate(
+			).init(rand_vector3(10),rand_vector3(PI)
 			).set_char(deck.pick_random()
 			).set_color(random_color()
 			).set_height_depth(randf_range(0.5,2),randf_range(0.01,0.3)
@@ -66,6 +71,9 @@ func rand_pos_rot(n :Node3D) -> Node3D:
 	n.position = Vector3(randf_range(-9,9),randf_range(0,9),randf_range(-9,9))
 	n.rotation = Vector3(randf_range(-PI,PI),randf_range(-PI,PI),randf_range(-PI,PI))
 	return n
+
+func rand_vector3(m :float) -> Vector3:
+	return Vector3(randf_range(-m,m),randf_range(-m,m),randf_range(-m,m))
 
 func random_color() -> Color:
 	return NamedColorList.color_list.pick_random()[0]

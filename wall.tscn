@@ -10,6 +10,7 @@ bounce = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxgf6"]
 resource_local_to_scene = true
+normal_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0xm2m"]
 resource_local_to_scene = true

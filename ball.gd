@@ -1,6 +1,11 @@
 extends RigidBody3D
 class_name Ball
 
+func init(vel :Vector3, avel :Vector3) -> Ball:
+	linear_velocity = vel
+	angular_velocity = avel
+	return self
+
 func set_material(mat :Material) -> Ball:
 	$MeshInstance3D.mesh.material = mat
 	return self

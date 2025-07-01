@@ -1,6 +1,15 @@
 extends RigidBody3D
 class_name Char
 
+func init(vel :Vector3, avel :Vector3) -> Char:
+	linear_velocity = vel
+	angular_velocity = avel
+	return self
+
+func set_material(mat :Material) -> Char:
+	$MeshInstance3D.mesh.material = mat
+	return self
+
 func set_color(co :Color) -> Char:
 	$MeshInstance3D.mesh.material.albedo_color = co
 	return self

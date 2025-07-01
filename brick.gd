@@ -1,6 +1,10 @@
 extends StaticBody3D
 class_name Brick
 
+func set_material(mat :Material) -> Brick:
+	$MeshInstance3D.mesh.material = mat
+	return self
+
 func set_color(co :Color) -> Brick:
 	$MeshInstance3D.mesh.material.albedo_color = co
 	return self
