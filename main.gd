@@ -1,6 +1,7 @@
 extends Node3D
 
 func _ready() -> void:
+	reset_camera_pos()
 	var deck = PlayingCard.make_deck_with_joker()
 	var n = 5
 	for i in n:
@@ -53,6 +54,7 @@ func random_color() -> Color:
 
 var key2fn = {
 	KEY_ESCAPE:_on_button_esc_pressed,
+	KEY_ENTER:_on_카메라변경_pressed,
 }
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
@@ -64,3 +66,20 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_button_esc_pressed() -> void:
 	get_tree().quit()
+
+var camera_move = false
+func _process(delta: float) -> void:
+	var t = Time.get_unix_time_from_system() /-3.0
+	if camera_move:
+		$Camera3D.position = Vector3(sin(t)*10, sin(t)*10, cos(t)*10)
+		$Camera3D.look_at(Vector3.ZERO)
+
+func _on_카메라변경_pressed() -> void:
+	camera_move = !camera_move
+	if camera_move == false:
+		reset_camera_pos()
+
+func reset_camera_pos()->void:
+	$Camera3D.position = Vector3(0,10,0)
+	$Camera3D.look_at(Vector3.ZERO)
+	$Camera3D.far = 50
