@@ -11,9 +11,6 @@ func set_size(v3 :Vector3) -> Dice:
 	$CollisionShape3D.shape.size = v3
 	return self
 
-func random_color() -> Color:
-	return NamedColorList.color_list.pick_random()[0]
-
 func _on_body_entered(body: Node) -> void:
 	if body is Brick:
-		body.set_color(random_color())
+		body.set_color($MeshInstance3D.mesh.material.albedo_color)

@@ -18,10 +18,6 @@ func set_radius_height(r :float, h:float) -> Coin:
 	$CollisionShape3D.shape.height = h
 	return self
 
-
-func random_color() -> Color:
-	return NamedColorList.color_list.pick_random()[0]
-
 func _on_body_entered(body: Node) -> void:
 	if body is Brick:
-		body.set_color(random_color())
+		body.set_color($MeshInstance3D.mesh.material.albedo_color)
