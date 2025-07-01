@@ -1,5 +1,23 @@
 extends Node3D
 
+var tex_array = [
+	preload("res://BallTexture/ball1.tres"),	
+	preload("res://BallTexture/ball2.tres"),	
+	preload("res://BallTexture/ball3.tres"),	
+	preload("res://BallTexture/ball4.tres"),	
+	preload("res://BallTexture/ball5.tres"),	
+	preload("res://BallTexture/ball6.tres"),	
+	preload("res://BallTexture/ball7.tres"),	
+	preload("res://BallTexture/ball8.tres"),	
+	preload("res://BallTexture/ball9.tres"),	
+	preload("res://BallTexture/ball10.tres"),	
+	preload("res://BallTexture/ball11.tres"),	
+	preload("res://BallTexture/ball12.tres"),	
+	preload("res://BallTexture/ball13.tres"),	
+	preload("res://BallTexture/ball14.tres"),	
+	preload("res://BallTexture/ball15.tres"),	
+]
+
 func _ready() -> void:
 	reset_camera_pos()
 	var deck = PlayingCard.make_deck_with_joker()
@@ -7,13 +25,13 @@ func _ready() -> void:
 	for i in n:
 		add_child(rand_pos_rot(
 			preload("res://ball.tscn").instantiate(
-			).set_material(Ball.tex_array.pick_random()
-			).set_radius(randf_range(0.2,1)
+			).set_color(random_color()
+			).set_radius(randf_range(0.2,0.8)
 		)))
 		add_child(rand_pos_rot(
 			preload("res://capsule.tscn").instantiate(
 			).set_color(random_color()
-			).set_radius_height(	randf_range(0.2,1), randf_range(0.6,3)
+			).set_radius_height(	randf_range(0.2,0.6), randf_range(0.6,3)
 		)))
 		add_child(rand_pos_rot(
 			preload("res://coin.tscn").instantiate(

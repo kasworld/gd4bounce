@@ -1,10 +1,12 @@
 extends RigidBody3D
-
 class_name Dice
 
 func set_color(co :Color) -> Dice:
 	$MeshInstance3D.mesh.material.albedo_color = co
 	return self
+
+func get_color() -> Color:
+	return $MeshInstance3D.mesh.material.albedo_color
 
 func set_size(v3 :Vector3) -> Dice:
 	$MeshInstance3D.mesh.size = v3
@@ -13,4 +15,6 @@ func set_size(v3 :Vector3) -> Dice:
 
 func _on_body_entered(body: Node) -> void:
 	if body is Brick:
-		body.set_color($MeshInstance3D.mesh.material.albedo_color)
+		body.set_color(get_color())
+	elif body is Wall:
+		body.set_color( get_color().lerp(body.get_color(), 0.9 ) )

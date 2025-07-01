@@ -1,5 +1,4 @@
 extends RigidBody3D
-
 class_name Coin
 
 func init(n :int) -> Coin:
@@ -9,6 +8,9 @@ func init(n :int) -> Coin:
 func set_color(co :Color) -> Coin:
 	$MeshInstance3D.mesh.material.albedo_color = co
 	return self
+
+func get_color() -> Color:
+	return $MeshInstance3D.mesh.material.albedo_color
 
 func set_radius_height(r :float, h:float) -> Coin:
 	$MeshInstance3D.mesh.top_radius = r
@@ -20,4 +22,6 @@ func set_radius_height(r :float, h:float) -> Coin:
 
 func _on_body_entered(body: Node) -> void:
 	if body is Brick:
-		body.set_color($MeshInstance3D.mesh.material.albedo_color)
+		body.set_color(get_color())
+	elif body is Wall:
+		body.set_color( get_color().lerp(body.get_color(), 0.9 ) )
