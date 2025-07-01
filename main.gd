@@ -29,32 +29,32 @@ func add_moveings() -> void:
 	for i in n:
 		add_child(rand_pos_rot(
 			preload("res://ball.tscn").instantiate(
-			).init(rand_vector3(10).normalized()*30,rand_vector3(PI)
+			).init(rand_vector3(10).normalized()*30,Vector3.ZERO
 			).set_color(random_color()
 			).set_radius(randf_range(0.2,0.5)
 		)))
 		add_child(rand_pos_rot(
 			preload("res://capsule.tscn").instantiate(
-			).init(rand_vector3(10).normalized()*30,rand_vector3(PI)
+			).init(rand_vector3(10).normalized()*30,Vector3.ZERO
 			).set_color(random_color()
 			).set_radius_height(	randf_range(0.2,0.5), randf_range(0.5,2)
 		)))
 		add_child(rand_pos_rot(
 			preload("res://coin.tscn").instantiate(
-			).init(rand_vector3(10).normalized()*30,rand_vector3(PI)
+			).init(rand_vector3(10).normalized()*30,Vector3.ZERO
 			).set_segment( i%8 +4
 			).set_color(random_color()
 			).set_radius_height(randf_range(0.2,0.7), randf_range(0.05,0.2)
 		)))
 		add_child(rand_pos_rot(
 			preload("res://dice.tscn").instantiate(
-			).init(rand_vector3(10).normalized()*30,rand_vector3(PI)
+			).init(rand_vector3(10).normalized()*30,Vector3.ZERO
 			).set_color(random_color()
 			).set_size(Vector3( randf_range(0.5,1),randf_range(0.5,1),randf_range(0.5,1) )
 		)))
 		add_child(rand_pos_rot(
 			preload("res://char.tscn").instantiate(
-			).init(rand_vector3(10).normalized()*30,rand_vector3(PI)
+			).init(rand_vector3(10).normalized()*30,Vector3.ZERO
 			).set_char(deck.pick_random()
 			).set_color(random_color()
 			).set_height_depth(randf_range(0.5,1),randf_range(0.05,0.2)

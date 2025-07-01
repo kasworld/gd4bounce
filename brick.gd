@@ -6,7 +6,7 @@ func set_material(mat :Material) -> Brick:
 	return self
 
 func set_color(co :Color) -> Brick:
-	$MeshInstance3D.mesh.material.albedo_color = co
+	$MeshInstance3D.mesh.material.albedo_color = Color(co, 0.5)
 	return self
 
 func get_color() -> Color:
