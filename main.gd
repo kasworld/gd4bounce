@@ -11,31 +11,46 @@ func _ready() -> void:
 		)))
 		add_child(rand_pos_rot(
 			preload("res://capsule.tscn").instantiate(
-			).set_color(NamedColorList.color_list.pick_random()[0]
+			).set_color(random_color()
 			).set_radius_height(	randf_range(0.2,1), randf_range(0.6,3)
 		)))
 		add_child(rand_pos_rot(
 			preload("res://coin.tscn").instantiate(
 			).init( i%8 +4
-			).set_color(NamedColorList.color_list.pick_random()[0]
+			).set_color(random_color()
 			).set_radius_height(randf_range(0.2,1), randf_range(0.04,0.2)
 		)))
 		add_child(rand_pos_rot(
 			preload("res://dice.tscn").instantiate(
-			).set_color(NamedColorList.color_list.pick_random()[0]
+			).set_color(random_color()
 			).set_size(Vector3( randf_range(0.4,2),randf_range(0.4,2),randf_range(0.4,2) )
 		)))
 		add_child(rand_pos_rot(
 			preload("res://char.tscn").instantiate(
 			).set_char(deck.pick_random()
-			).set_color(NamedColorList.color_list.pick_random()[0]
+			).set_color(random_color()
 			).set_height_depth(randf_range(0.5,2),randf_range(0.01,0.3)
 		)))
+
+	for x in range(-9,9):
+		for y in range(-9,0):
+			for z in range(-9,9):
+				if randi_range(0,100) != 0:
+					continue
+				var br = preload("res://brick.tscn").instantiate(
+					).set_color(random_color()
+					).set_size(Vector3(0.5,0.5,0.5))
+				br.position = Vector3(x,y,z)
+				add_child(br)
+		
 
 func rand_pos_rot(n :Node3D) -> Node3D:
 	n.position = Vector3(randf_range(-9,9),randf_range(-8,9),randf_range(-9,9))
 	n.rotation = Vector3(randf_range(-PI,PI),randf_range(-PI,PI),randf_range(-PI,PI))
 	return n
+
+func random_color() -> Color:
+	return NamedColorList.color_list.pick_random()[0]
 
 var key2fn = {
 	KEY_ESCAPE:_on_button_esc_pressed,
