@@ -16,5 +16,5 @@ func set_height_depth(h :float, d :float) -> Char:
 
 func set_char(s :String) -> Char:
 	$MeshInstance3D.mesh.text = s
-	$CollisionShape3D.shape.size.x = $CollisionShape3D.shape.size.z * 0.9 * s.length() 
+	$CollisionShape3D.shape.size.x = $CollisionShape3D.shape.size.z * 0.9 * $MeshInstance3D.mesh.text.length() 
 	return self
