@@ -71,7 +71,7 @@ func add_bricks() -> void:
 	for x in range(-9,10):
 		for y in range(-9,0):
 			for z in range(-9,10):
-				if randi_range(0,100) != 0:
+				if randi_range(0,1) != 0:
 					continue
 				var br = preload("res://brick.tscn").instantiate(
 					).set_color(random_color()
@@ -86,8 +86,8 @@ func reset_movings_pos_rot() -> void:
 		rand_pos_rot(mv)
 
 func brick_broken(me :RigidBody3D, br :Brick) ->void:
-	$BrickContainer.remove_child(br)
-	br.queue_free()
+	br.set_broken_effect()
+	br.reparent($BrokenBrickContainer)
 	if $BrickContainer.get_child_count() <= 0:
 		reset_movings_pos_rot.call_deferred()
 		add_bricks.call_deferred()

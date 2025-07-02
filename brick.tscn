@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3tapgkcaqu6a"]
+[gd_scene load_steps=9 format=3 uid="uid://c3tapgkcaqu6a"]
 
 [ext_resource type="Script" uid="uid://bpusp3ev387k1" path="res://brick.gd" id="1_awxk8"]
 
@@ -12,11 +12,37 @@ resource_local_to_scene = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nkspu"]
 resource_local_to_scene = true
-transparency = 1
+emission = Color(1, 1, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_nkspu"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_nkspu")
+
+[sub_resource type="Animation" id="Animation_awxk8"]
+resource_name = "new_animation"
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 1, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_5p85m"]
+length = 0.001
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mt0q5"]
+_data = {
+&"RESET": SubResource("Animation_5p85m"),
+&"new_animation": SubResource("Animation_awxk8")
+}
 
 [node name="Brick" type="StaticBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_nkspu")
@@ -27,3 +53,10 @@ shape = SubResource("BoxShape3D_nkspu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_nkspu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mt0q5")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

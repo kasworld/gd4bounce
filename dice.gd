@@ -26,9 +26,6 @@ func set_size(v3 :Vector3) -> Dice:
 
 func _on_body_entered(body: Node) -> void:
 	if body is Brick:
-		#body.set_color(get_color())
 		brick_broken.emit(self,body)
-		pass
 	elif body is Wall:
-		#body.set_color( get_color().lerp(body.get_color(), 0.9 ) )
 		pass
