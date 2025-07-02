@@ -1,7 +1,7 @@
 extends RigidBody3D
 class_name Char
 
-signal brick_broken(me :RigidBody3D)
+signal brick_broken(me :RigidBody3D, br :Brick)
 
 func init(vel :Vector3, avel :Vector3) -> Char:
 	linear_velocity = vel
@@ -35,8 +35,7 @@ func set_char(s :String) -> Char:
 func _on_body_entered(body: Node) -> void:
 	if body is Brick:
 		#body.set_color(get_color())
-		body.queue_free()
-		brick_broken.emit(self)
+		brick_broken.emit(self,body)
 		pass
 	elif body is Wall:
 		#body.set_color( get_color().lerp(body.get_color(), 0.9 ) )
