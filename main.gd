@@ -19,7 +19,7 @@ var tex_array = [
 ]
 
 var brick_count :int
-
+var total_brick_count :int
 func _ready() -> void:
 	var vp_size = get_viewport().get_visible_rect().size
 	var 짧은길이 = min(vp_size.x,vp_size.y)
@@ -69,25 +69,34 @@ func add_moveings() -> void:
 		mv.brick_broken.connect(brick_broken)
 
 func add_bricks() -> void:
+	brick_count = 0
 	for x in range(-9,10):
 		for y in range(-9,0):
 			for z in range(-9,10):
-				#if randi_range(0,100) != 0:
-					#continue
+				if randi_range(0,1) != 0:
+					continue
 				var br = preload("res://brick.tscn").instantiate(
 					).set_color(random_color()
 					).set_size(Vector3(0.9,0.9,0.9))
 				br.position = Vector3(x,y,z)
 				add_child(br)
 				brick_count += 1
+	total_brick_count = brick_count
 	update_brick_count()
+
+func reset_movings_pos_rot() -> void:
+	for mv in $MovingContainer.get_children():
+		rand_pos_rot(mv)
 
 func brick_broken(me :RigidBody3D) ->void:
 	brick_count -= 1
+	if brick_count <= 0:
+		reset_movings_pos_rot.call_deferred()
+		add_bricks.call_deferred()
 	update_brick_count()
 
 func update_brick_count() -> void:
-	$"왼쪽패널/BrickCount".text = "%s" % brick_count
+	$"왼쪽패널/BrickCount".text = "%s/%s" % [brick_count , total_brick_count]
 
 func rand_pos_rot(n :Node3D) -> Node3D:
 	n.position = Vector3(randf_range(-9,9),randf_range(0,9),randf_range(-9,9))
