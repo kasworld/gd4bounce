@@ -43,3 +43,13 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 10, 0,
 
 [node name="WallTop" parent="." instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 10, 0)
+
+[node name="MovingContainer" type="Node3D" parent="."]
+
+[node name="왼쪽패널" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BrickCount" type="Label" parent="왼쪽패널"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
