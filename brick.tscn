@@ -18,16 +18,6 @@ emission = Color(1, 1, 1, 1)
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_nkspu")
 
-[sub_resource type="Animation" id="Animation_awxk8"]
-resource_name = "new_animation"
-tracks/0/type = "scale_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 1, 1, 0, 0, 0)
-
 [sub_resource type="Animation" id="Animation_5p85m"]
 length = 0.001
 tracks/0/type = "scale_3d"
@@ -37,6 +27,16 @@ tracks/0/path = NodePath("MeshInstance3D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_awxk8"]
+resource_name = "new_animation"
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 1, 1, 0, 0, 0)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mt0q5"]
 _data = {

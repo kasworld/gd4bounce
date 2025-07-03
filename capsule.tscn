@@ -1,8 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://k5fy21l7y6kv"]
+[gd_scene load_steps=6 format=3 uid="uid://k5fy21l7y6kv"]
 
 [ext_resource type="Script" uid="uid://bakjkxekucsf0" path="res://capsule.gd" id="1_2mnhe"]
-[ext_resource type="Texture2D" uid="uid://dmu4xdw0s4lne" path="res://earthmoon/moon.png" id="2_vsqmq"]
-[ext_resource type="Texture2D" uid="uid://2x0cka7afmvg" path="res://earthmoon/moon_normals.png" id="3_xb5gp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2mnhe"]
 resource_local_to_scene = true
@@ -14,9 +12,6 @@ resource_local_to_scene = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2mnhe"]
 resource_local_to_scene = true
-albedo_texture = ExtResource("2_vsqmq")
-normal_enabled = true
-normal_texture = ExtResource("3_xb5gp")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_uxsg3"]
 resource_local_to_scene = true
